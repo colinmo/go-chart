@@ -60,6 +60,7 @@ func Legend(c *Chart, userDefaults ...Style) Renderable {
 
 		// measure
 		labelCount := 0
+		sort.SliceStable(labels, func(i, j int) bool { return labels[i] < labels[j] })
 		for x := 0; x < len(labels); x++ {
 			if len(labels[x]) > 0 {
 				tb := r.MeasureText(labels[x])
